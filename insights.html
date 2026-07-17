@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Insights from Michelle Johnson on operational excellence, executive event production, audience experience, and leadership under pressure." />
+  <title>Insights | Michelle Johnson Productions</title>
+  <style>
+    :root{
+      --black:#0B0B0B;
+      --navy:#0E1A2B;
+      --blue:#4DA3FF;
+      --slate:#AEB7C2;
+      --white:#F8FAFC;
+      --panel:#0D1117;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--black);
+      color:white;
+      font-family:Inter,Manrope,Arial,sans-serif;
+      line-height:1.55;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1180px;margin:0 auto}
+    .section{padding:100px 24px}
+    .eyebrow{
+      color:var(--blue);
+      text-transform:uppercase;
+      letter-spacing:.26em;
+      font-size:12px;
+      margin-bottom:18px;
+    }
+    h1,h2,h3{margin:0;line-height:1.05;letter-spacing:-.035em}
+    h1{font-size:clamp(46px,7vw,86px)}
+    h2{font-size:clamp(34px,5vw,64px)}
+    h3{font-size:clamp(24px,3vw,34px)}
+    p{margin:0}
+    .muted{color:var(--slate)}
+
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:20;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      background:rgba(11,11,11,.88);
+      backdrop-filter:blur(14px);
+    }
+    .nav-inner{
+      max-width:1180px;
+      margin:0 auto;
+      padding:18px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:24px;
+    }
+    .brand{font-weight:800;letter-spacing:-.02em}
+    .nav-links{display:flex;gap:24px;color:#dbe5ef;font-size:14px}
+    .nav-links a:hover{color:var(--blue)}
+
+    .hero{
+      min-height:72vh;
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 78% 20%,rgba(77,163,255,.26),transparent 34%),
+        linear-gradient(135deg,#050505,#0E1A2B 55%,#000);
+    }
+    .hero:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to bottom,transparent,rgba(0,0,0,.42));
+      pointer-events:none;
+    }
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:980px;
+    }
+    .hero p{
+      max-width:770px;
+      margin-top:26px;
+      color:#cad4df;
+      font-size:clamp(18px,2vw,23px);
+    }
+    .blue{color:var(--blue)}
+    .buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+    .btn{
+      display:inline-block;
+      padding:15px 23px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.18);
+      font-weight:750;
+    }
+    .btn.primary{
+      background:var(--blue);
+      border-color:var(--blue);
+      color:#04101d;
+    }
+
+    .intro{
+      border-block:1px solid rgba(255,255,255,.09);
+      background:var(--panel);
+    }
+    .intro-grid{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:64px;
+      align-items:start;
+    }
+    .intro-copy p{
+      color:#c5cfda;
+      font-size:18px;
+      margin-bottom:18px;
+    }
+
+    .articles-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+      margin-top:48px;
+    }
+    .article-card{
+      min-height:330px;
+      padding:30px;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,.1);
+      background:linear-gradient(145deg,#111827,#050505);
+      display:flex;
+      flex-direction:column;
+      transition:.25s ease;
+    }
+    .article-card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(77,163,255,.45);
+    }
+    .article-card .label{
+      color:var(--blue);
+      text-transform:uppercase;
+      letter-spacing:.17em;
+      font-size:11px;
+      margin-bottom:28px;
+    }
+    .article-card h3{font-size:28px;margin-bottom:18px}
+    .article-card p{color:var(--slate)}
+    .article-card .link{
+      margin-top:auto;
+      padding-top:30px;
+      color:#dbeafe;
+      font-weight:700;
+    }
+
+    .pillars{
+      background:linear-gradient(135deg,#050505,#0D1117 58%,#020202);
+    }
+    .pillar-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+      margin-top:46px;
+    }
+    .pillar{
+      padding:28px;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.1);
+      background:rgba(255,255,255,.04);
+    }
+    .pillar strong{
+      display:block;
+      color:var(--blue);
+      font-size:19px;
+      margin-bottom:12px;
+    }
+    .pillar p{color:var(--slate)}
+
+    .linkedin{
+      border-block:1px solid rgba(255,255,255,.09);
+      background:var(--panel);
+    }
+    .linkedin-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:54px;
+      align-items:center;
+    }
+    .linkedin-card{
+      padding:36px;
+      border-radius:30px;
+      background:linear-gradient(135deg,#122033,#050505);
+      border:1px solid rgba(77,163,255,.25);
+    }
+    .linkedin-card p{
+      color:#cbd5e1;
+      font-size:18px;
+      margin-top:16px;
+    }
+
+    .cta{
+      text-align:center;
+      background:
+        radial-gradient(circle at center,rgba(77,163,255,.26),transparent 45%),
+        linear-gradient(90deg,var(--navy),#000);
+    }
+    .cta p{
+      max-width:740px;
+      margin:24px auto 32px;
+      color:#cbd5e1;
+      font-size:20px;
+    }
+
+    .footer{
+      padding:34px 24px;
+      text-align:center;
+      color:var(--slate);
+      border-top:1px solid rgba(255,255,255,.08);
+      font-size:14px;
+    }
+
+    @media(max-width:900px){
+      .intro-grid,.linkedin-grid{grid-template-columns:1fr}
+      .articles-grid{grid-template-columns:1fr}
+      .pillar-grid{grid-template-columns:repeat(2,1fr)}
+      .section{padding:76px 20px}
+      .nav-links{display:none}
+    }
+    @media(max-width:560px){
+      .pillar-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Michelle Johnson Productions</a>
+      <div class="nav-links">
+        <a href="index.html#work">Portfolio</a>
+        <a href="#insights">Insights</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero section">
+    <div class="container hero-content">
+      <div class="eyebrow">Insights by Michelle Johnson</div>
+      <h1>Where Operational Excellence Meets <span class="blue">Extraordinary Experiences.</span></h1>
+      <p>Practical perspective on executive event leadership, production strategy, audience experience, stakeholder trust, and the systems that make complex work feel seamless.</p>
+      <div class="buttons">
+        <a class="btn primary" href="#insights">Explore Insights</a>
+        <a class="btn" href="index.html#contact">Start a Conversation</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section intro">
+    <div class="container intro-grid">
+      <div>
+        <div class="eyebrow">The Point of View</div>
+        <h2>Great experiences are built long before the room fills.</h2>
+      </div>
+      <div class="intro-copy">
+        <p>After producing hundreds of live, virtual, and hybrid experiences, I have learned that the most successful events are rarely defined by one dramatic moment. They are shaped by preparation, alignment, calm decision-making, and thoughtful systems working together behind the scenes.</p>
+        <p>This space is where I share lessons from high-stakes production environments, executive engagement, operational improvement, and leadership under pressure.</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="section" id="insights">
+    <div class="container">
+      <div class="eyebrow">Featured Thinking</div>
+      <h2>Ideas for leaders who need the work to feel effortless.</h2>
+      <div class="articles-grid">
+        <article class="article-card">
+          <div class="label">Production Leadership</div>
+          <h3>The Best Event Producers Are Invisible</h3>
+          <p>What seamless execution really looks like—and why calm, quiet leadership is often the clearest sign that the right systems are in place.</p>
+          <div class="link">Coming soon →</div>
+        </article>
+        <article class="article-card">
+          <div class="label">Operational Excellence</div>
+          <h3>The Difference Between Managing Logistics and Leading an Experience</h3>
+          <p>Why schedules and checklists matter, but judgment, anticipation, and stakeholder confidence are what elevate the work.</p>
+          <div class="link">Coming soon →</div>
+        </article>
+        <article class="article-card">
+          <div class="label">Executive Readiness</div>
+          <h3>What Executive Speakers Need—but Rarely Ask For</h3>
+          <p>A producer's perspective on preparation, rehearsal, white-glove support, and creating conditions for confident delivery.</p>
+          <div class="link">Coming soon →</div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <section class="section pillars">
+    <div class="container">
+      <div class="eyebrow">Core Themes</div>
+      <h2>Production knowledge translated into business value.</h2>
+      <div class="pillar-grid">
+        <div class="pillar">
+          <strong>Executive Event Leadership</strong>
+          <p>High-stakes planning, stakeholder alignment, speaker readiness, and composed live execution.</p>
+        </div>
+        <div class="pillar">
+          <strong>Operational Excellence</strong>
+          <p>Workflows, playbooks, communication rhythms, and systems that reduce friction and strengthen delivery.</p>
+        </div>
+        <div class="pillar">
+          <strong>Audience Experience</strong>
+          <p>Designing every touchpoint so attendees feel informed, supported, and fully present.</p>
+        </div>
+        <div class="pillar">
+          <strong>Leadership Under Pressure</strong>
+          <p>Decision-making, risk management, and the calm behind complex moments where nothing can be left to chance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section linkedin">
+    <div class="container linkedin-grid">
+      <div>
+        <div class="eyebrow">Follow the Conversation</div>
+        <h2>New insights will begin on LinkedIn—and live here for the long term.</h2>
+        <p class="muted" style="font-size:19px;margin-top:24px;max-width:690px">LinkedIn will be the weekly conversation. This page will become the permanent library: a place for clients, collaborators, and recruiters to explore how Michelle approaches production leadership, operational strategy, and extraordinary experiences.</p>
+      </div>
+      <div class="linkedin-card">
+        <div class="eyebrow">Cue to Client™</div>
+        <h3>One lesson. One story. One practical takeaway.</h3>
+        <p>A recurring series translating behind-the-scenes production experience into useful leadership and operational insight.</p>
+        <div class="buttons">
+          <a class="btn primary" href="https://www.linkedin.com">Connect on LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta">
+    <div class="container">
+      <div class="eyebrow">Let's Build Something Exceptional</div>
+      <h2>Planning an experience where execution matters?</h2>
+      <p>Michelle Johnson Productions provides executive event production, show leadership, operational strategy, and production consulting for organizations that need clarity, composure, and premium execution.</p>
+      <a class="btn primary" href="index.html#contact">Start a Conversation</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2026 Michelle Johnson Productions • Strategic Event Production & Operational Excellence
+  </footer>
+</body>
+</html>
